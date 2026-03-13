@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | RAJAOFERASON Hajatiana — Support IT & Réseaux</title>
+    <meta name="description" content="Portfolio de RAJAOFERASON Hajatiana, Technicien Support IT N2 spécialisé en Administration Réseaux et Systèmes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="network-bg"></canvas>
+
+<!-- Boot screen -->
+<div id="boot-screen">
+    <div class="boot-text">
+        <span class="boot-line">Initialisation du système...</span>
+        <span class="boot-line">Chargement des modules réseau... <span class="ok">[OK]</span></span>
+        <span class="boot-line">Authentification sécurisée... <span class="ok">[OK]</span></span>
+        <span class="boot-line">Démarrage du portfolio...</span>
+        <div class="boot-bar"><div class="boot-fill"></div></div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="logo">
+        <span class="prompt">hajatiana@portfolio</span><span class="at">:</span><span class="path">~#</span>
+    </div>
+    <ul>
+        <li><a href="#about"><span class="cb">[</span>À propos<span class="cb">]</span></a></li>
+        <li><a href="#skills"><span class="cb">[</span>Compétences<span class="cb">]</span></a></li>
+        <li><a href="#projects"><span class="cb">[</span>Projets<span class="cb">]</span></a></li>
+        <li><a href="#education"><span class="cb">[</span>Formation<span class="cb">]</span></a></li>
+        <li><a href="#contact"><span class="cb">[</span>Contact<span class="cb">]</span></a></li>
+    </ul>
+    <div class="nav-status"><span class="status-dot"></span> ONLINE</div>
+</nav>
+
+<!-- Hero -->
+<header id="hero">
+    <div class="hero-content">
+        <div class="hero-label">// TECHNICIEN SUPPORT IT N2 · RÉSEAUX & SYSTÈMES</div>
+        <h1><span id="typed-text"></span><span class="cursor-blink">█</span></h1>
+        <p class="hero-sub">Infrastructure · Sécurité · Virtualisation · Supervision</p>
+        <div class="hero-stats">
+            <div class="stat"><span class="stat-val" data-target="6">0</span><span class="stat-label">Mois de stage</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-val" data-target="5">0</span><span class="stat-label">Projets réalisés</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-val" data-target="10">0</span><span class="stat-label">+ Outils maîtrisés</span></div>
+        </div>
+        <div class="hero-actions">
+            <button id="cta" class="btn-primary">Voir mes projets</button>
+            <a href="#contact" class="btn-outline">Me contacter</a>
+        </div>
+    </div>
+    <div class="hero-terminal">
+        <div class="terminal-bar">
+            <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+            <span class="t-title">bash — hajatiana@srv-local</span>
+        </div>
+        <div class="terminal-body" id="terminal-output"></div>
+    </div>
+</header>
+
+<!-- About -->
+<section id="about">
+    <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h2>À propos</h2>
+        <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+        <div class="about-text reveal">
+            <p>Technicien informatique passionné par l'administration réseaux et systèmes, avec une expérience en support IT niveau 2, gestion d'incidents et maintenance d'infrastructure serveur.</p>
+            <p>Compétent dans la configuration réseau, le dépannage, la sécurisation des systèmes Linux/Windows, la virtualisation et le monitoring. À la recherche d'une opportunité pour mettre en œuvre ces compétences dans un environnement professionnel stimulant.</p>
+            <div class="about-tags">
+                <span>Linux</span><span>Windows Server</span><span>VMware</span><span>Docker</span><span>Wazuh SIEM</span>
+            </div>
+        </div>
+        <div class="about-info reveal">
+            <div class="info-item"><span class="info-key">Localisation</span><span class="info-val">Antananarivo, Madagascar</span></div>
+            <div class="info-item"><span class="info-key">Disponibilité</span><span class="info-val"><span class="online-dot"></span> Disponible</span></div>
+            <div class="info-item"><span class="info-key">Niveau</span><span class="info-val">Junior — 1ère expérience</span></div>
+            <div class="info-item"><span class="info-key">Formation</span><span class="info-val">Licence L3 Réseaux & Systèmes</span></div>
+            <div class="info-item"><span class="info-key">OS</span><span class="info-val">Linux (Debian/Ubuntu/Kali) · Windows Server</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <div class="section-header">
+        <span class="section-tag">// 02</span>
+        <h2>Compétences Techniques</h2>
+        <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-category reveal">
+            <div class="skill-icon">▣</div>
+            <h3>Virtualisation & OS</h3>
+            <ul class="skill-list">
+                <li>VMware Workstation</li>
+                <li>Oracle VirtualBox</li>
+                <li>Linux : Debian / Ubuntu Server / Kali</li>
+                <li>Windows 7/8/10 · Server 2012/2016</li>
+                <li>Docker</li>
+            </ul>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-level="80"></div></div>
+        </div>
+        <div class="skill-category reveal">
+            <div class="skill-icon">◈</div>
+            <h3>Sécurité & Hardening</h3>
+            <ul class="skill-list">
+                <li>Wazuh SIEM (Docker)</li>
+                <li>Fail2ban · UFW · SSH Keys</li>
+                <li>MITRE ATT&CK</li>
+                <li>FIM (File Integrity Monitoring)</li>
+                <li>FortiGate (Pare-feu)</li>
+            </ul>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-level="72"></div></div>
+        </div>
+        <div class="skill-category reveal">
+            <div class="skill-icon">◉</div>
+            <h3>Supervision & Serveurs</h3>
+            <ul class="skill-list">
+                <li>Grafana · Prometheus · Node Exporter</li>
+                <li>Zabbix · Smokeping</li>
+                <li>Active Directory · DHCP · FTP · GPO</li>
+                <li>Bacula (Sauvegarde)</li>
+                <li>Serveur NAS</li>
+            </ul>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-level="75"></div></div>
+        </div>
+        <div class="skill-category reveal">
+            <div class="skill-icon">⬡</div>
+            <h3>Support & Développement</h3>
+            <ul class="skill-list">
+                <li>ManageEngine IT Helpdesk · GLPI</li>
+                <li>Gestion de tickets & incidents N2</li>
+                <li>Python · C · Java · PHP</li>
+                <li>HTML / CSS / JavaScript</li>
+            </ul>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-level="65"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <div class="section-header">
+        <span class="section-tag">// 03</span>
+        <h2>Projets & Expériences</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <!-- Stage -->
+    <div class="exp-card reveal">
+        <div class="exp-header">
+            <div>
+                <span class="tag tag-job">Stage IT N2</span>
+                <h3>Be Ys Outsourcing Services Madagascar</h3>
+                <p class="exp-date">Juillet 2025 – Janvier 2026 · Antananarivo</p>
+            </div>
+            <div class="exp-anim" id="anim-stage">
+                <!-- Ticket flow animation -->
+                <svg viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="20" width="30" height="30" rx="4" fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.6"/>
+                    <text x="20" y="39" text-anchor="middle" fill="#00d4ff" font-size="8" font-family="monospace">USR</text>
+                    <rect x="85" y="20" width="30" height="30" rx="4" fill="none" stroke="#39ff14" stroke-width="1.2" opacity="0.6"/>
+                    <text x="100" y="39" text-anchor="middle" fill="#39ff14" font-size="7" font-family="monospace">N2</text>
+                    <line x1="35" y1="35" x2="85" y2="35" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4 3">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-14" dur="1.2s" repeatCount="indefinite"/>
+                    </line>
+                    <polygon points="82,31 90,35 82,39" fill="#00d4ff" opacity="0.8"/>
+                    <rect x="42" y="26" width="18" height="10" rx="2" fill="#00d4ff" opacity="0.15" stroke="#00d4ff" stroke-width="0.8"/>
+                    <text x="51" y="34" text-anchor="middle" fill="#00d4ff" font-size="6" font-family="monospace">#T</text>
+                    <text x="60" y="62" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">ManageEngine · GLPI</text>
+                </svg>
+            </div>
+        </div>
+        <ul class="exp-list">
+            <li>Dépannage logiciel et diagnostic des ordinateurs et serveurs</li>
+            <li>Support utilisateur N2, gestion des incidents et des tickets via <strong>ManageEngine IT Helpdesk</strong></li>
+            <li>Suivi et résolution des tickets dans les délais SLA définis</li>
+        </ul>
+        <div class="project-stack"><span>ManageEngine</span><span>GLPI</span><span>Windows Server</span><span>Active Directory</span></div>
+    </div>
+
+    <div class="projects-grid">
+        <!-- Projet 1: Bacula -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-bacula">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="25" width="32" height="28" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.2"/>
+                    <rect x="12" y="29" width="6" height="4" rx="1" fill="#00d4ff" opacity="0.5"/>
+                    <rect x="12" y="35" width="6" height="4" rx="1" fill="#00d4ff" opacity="0.5"/>
+                    <rect x="12" y="41" width="6" height="4" rx="1" fill="#00d4ff" opacity="0.5"/>
+                    <text x="24" y="58" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">SRV</text>
+                    <!-- data packets -->
+                    <circle cx="55" cy="39" r="4" fill="#00d4ff" opacity="0.8">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M0,0 L50,0"/>
+                        <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="55" cy="39" r="4" fill="#00d4ff" opacity="0.8">
+                        <animateMotion begin="0.7s" dur="2s" repeatCount="indefinite" path="M0,0 L50,0"/>
+                        <animate attributeName="opacity" values="0;1;1;0" begin="0.7s" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <line x1="40" y1="39" x2="100" y2="39" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4"/>
+                    <!-- Backup server -->
+                    <rect x="100" y="22" width="34" height="34" rx="3" fill="none" stroke="#39ff14" stroke-width="1.2"/>
+                    <text x="117" y="36" text-anchor="middle" fill="#39ff14" font-size="7" font-family="monospace">BAK</text>
+                    <rect x="104" y="39" width="26" height="3" rx="1" fill="#39ff14" opacity="0.3">
+                        <animate attributeName="width" values="0;26;26" dur="2s" repeatCount="indefinite"/>
+                    </rect>
+                    <text x="70" y="70" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">Bacula Community · Linux</text>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">Mémoire L3</span>
+                <span class="project-date">2025</span>
+            </div>
+            <h3>Serveur de Sauvegarde Bacula</h3>
+            <p>Déploiement d'un serveur de sauvegarde sous Linux avec <strong>Bacula Community</strong> : installation, configuration des jobs, restauration et planification automatique.</p>
+            <div class="project-stack"><span>Bacula</span><span>Linux</span><span>Cron</span></div>
+            <div class="project-metrics"><span>↗ Sauvegarde auto</span><span>↗ Restore testé</span></div>
+        </div>
+
+        <!-- Projet 2: NAS -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-nas">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- NAS central -->
+                    <rect x="53" y="26" width="34" height="26" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
+                    <text x="70" y="41" text-anchor="middle" fill="#00d4ff" font-size="8" font-family="monospace">NAS</text>
+                    <rect x="56" y="44" width="28" height="3" rx="1" fill="#00d4ff" opacity="0.3"/>
+                    <!-- Devices -->
+                    <rect x="4" y="10" width="22" height="16" rx="2" fill="none" stroke="#5a7a95" stroke-width="1"/>
+                    <text x="15" y="21" text-anchor="middle" fill="#5a7a95" font-size="5.5" font-family="monospace">PC1</text>
+                    <rect x="4" y="52" width="22" height="16" rx="2" fill="none" stroke="#5a7a95" stroke-width="1"/>
+                    <text x="15" y="63" text-anchor="middle" fill="#5a7a95" font-size="5.5" font-family="monospace">PC2</text>
+                    <rect x="114" y="10" width="22" height="16" rx="2" fill="none" stroke="#5a7a95" stroke-width="1"/>
+                    <text x="125" y="21" text-anchor="middle" fill="#5a7a95" font-size="5.5" font-family="monospace">📱</text>
+                    <rect x="114" y="52" width="22" height="16" rx="2" fill="none" stroke="#5a7a95" stroke-width="1"/>
+                    <text x="125" y="63" text-anchor="middle" fill="#5a7a95" font-size="5" font-family="monospace">PC3</text>
+                    <!-- Connecting lines with pulse -->
+                    <line x1="26" y1="18" x2="53" y2="33" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3 2">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.5s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="26" y1="60" x2="53" y2="46" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3 2">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.8s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="114" y1="18" x2="87" y2="33" stroke="#39ff14" stroke-width="0.8" stroke-dasharray="3 2">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1.3s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="114" y1="60" x2="87" y2="46" stroke="#39ff14" stroke-width="0.8" stroke-dasharray="3 2">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="2s" repeatCount="indefinite"/>
+                    </line>
+                    <text x="70" y="75" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">Ethernet · Wi-Fi · Homelab</text>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">Homelab</span>
+                <span class="project-date">2024</span>
+            </div>
+            <h3>Serveur NAS Local</h3>
+            <p>Mise en place d'un <strong>serveur NAS</strong> en local connecté au réseau local, permettant à plusieurs utilisateurs et appareils d'accéder, stocker et partager des fichiers de façon centralisée via Ethernet ou Wi-Fi.</p>
+            <div class="project-stack"><span>NAS</span><span>LAN</span><span>Partage Fichiers</span><span>Linux</span></div>
+            <div class="project-metrics"><span>↗ Multi-devices</span><span>↗ Stockage centralisé</span></div>
+        </div>
+
+        <!-- Projet 3: Linux Hardening -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-hardening">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Shield -->
+                    <path d="M70,12 L90,22 L90,45 Q90,60 70,68 Q50,60 50,45 L50,22 Z" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+                    <path d="M70,18 L84,26 L84,44 Q84,56 70,63 Q56,56 56,44 L56,26 Z" fill="#00d4ff" opacity="0.05"/>
+                    <!-- Lock -->
+                    <rect x="63" y="38" width="14" height="12" rx="2" fill="none" stroke="#39ff14" stroke-width="1.2"/>
+                    <path d="M65,38 Q65,32 70,32 Q75,32 75,38" fill="none" stroke="#39ff14" stroke-width="1.2"/>
+                    <circle cx="70" cy="44" r="2" fill="#39ff14" opacity="0.8"/>
+                    <!-- Blocked attempts (left side) -->
+                    <text x="8" y="25" fill="#ff4757" font-size="7" font-family="monospace">185.x.x</text>
+                    <line x1="40" y1="24" x2="50" y2="35" stroke="#ff4757" stroke-width="0.8" stroke-dasharray="2 2">
+                        <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/>
+                    </line>
+                    <text x="8" y="45" fill="#ff4757" font-size="7" font-family="monospace">103.x.x</text>
+                    <line x1="40" y1="44" x2="50" y2="39" stroke="#ff4757" stroke-width="0.8" stroke-dasharray="2 2">
+                        <animate attributeName="opacity" values="1;0.2;1" dur="1.2s" repeatCount="indefinite"/>
+                    </line>
+                    <!-- Banned label -->
+                    <rect x="3" y="55" width="40" height="12" rx="2" fill="#ff4757" opacity="0.12" stroke="#ff4757" stroke-width="0.7"/>
+                    <text x="23" y="64" text-anchor="middle" fill="#ff4757" font-size="6.5" font-family="monospace">BANNED ✓</text>
+                    <text x="105" y="35" fill="#39ff14" font-size="6.5" font-family="monospace">SSH Keys</text>
+                    <text x="105" y="46" fill="#39ff14" font-size="6.5" font-family="monospace">Fail2ban</text>
+                    <text x="105" y="57" fill="#39ff14" font-size="6.5" font-family="monospace">UFW</text>
+                    <text x="70" y="76" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">Homelab · Hardening Linux</text>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">Sécurité · Homelab</span>
+                <span class="project-date">2024</span>
+            </div>
+            <h3>Hardening Serveurs Linux</h3>
+            <p>Politique de durcissement en local incluant l'authentification par <strong>clés SSH</strong>, la protection anti brute-force via <strong>Fail2ban</strong> et le filtrage réseau avec <strong>UFW</strong>.</p>
+            <div class="project-stack"><span>SSH</span><span>Fail2ban</span><span>UFW</span><span>Linux</span></div>
+            <div class="project-metrics"><span>↗ Brute-force bloqué</span><span>↗ Auth par clés</span></div>
+        </div>
+
+        <!-- Projet 4: Grafana/Prometheus -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-monitoring">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Graph background -->
+                    <rect x="8" y="10" width="124" height="50" rx="3" fill="#00d4ff" opacity="0.04" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
+                    <!-- Grid lines -->
+                    <line x1="8" y1="27" x2="132" y2="27" stroke="#00d4ff" stroke-width="0.4" opacity="0.2"/>
+                    <line x1="8" y1="43" x2="132" y2="43" stroke="#00d4ff" stroke-width="0.4" opacity="0.2"/>
+                    <!-- CPU line (animated) -->
+                    <polyline points="12,50 28,38 44,42 60,28 76,32 92,22 108,30 124,18 132,24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="200" stroke-dashoffset="200">
+                        <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2.5s" fill="freeze" repeatCount="indefinite"/>
+                    </polyline>
+                    <!-- RAM line (animated delayed) -->
+                    <polyline points="12,55 28,50 44,53 60,46 76,50 92,44 108,48 124,42 132,45" fill="none" stroke="#39ff14" stroke-width="1.2" stroke-dasharray="200" stroke-dashoffset="200">
+                        <animate attributeName="stroke-dashoffset" from="200" to="0" begin="0.5s" dur="2.5s" fill="freeze" repeatCount="indefinite"/>
+                    </polyline>
+                    <!-- Labels -->
+                    <circle cx="115" cy="65" r="3" fill="#00d4ff" opacity="0.8"/>
+                    <text x="120" y="68" fill="#00d4ff" font-size="6" font-family="monospace">CPU</text>
+                    <circle cx="12" cy="65" r="3" fill="#39ff14" opacity="0.8"/>
+                    <text x="17" y="68" fill="#39ff14" font-size="6" font-family="monospace">RAM</text>
+                    <text x="70" y="76" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">Grafana · Prometheus · Node Exporter · Homelab</text>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">Monitoring · Homelab</span>
+                <span class="project-date">2024</span>
+            </div>
+            <h3>Stack Monitoring Grafana/Prometheus</h3>
+            <p>Déploiement d'une stack <strong>Grafana/Prometheus</strong> avec Node Exporter en local : supervision en temps réel des métriques système (CPU, Disque, RAM, Réseau) et dashboards personnalisés.</p>
+            <div class="project-stack"><span>Grafana</span><span>Prometheus</span><span>Node Exporter</span><span>Linux</span></div>
+            <div class="project-metrics"><span>↗ Temps réel</span><span>↗ Dashboard custom</span></div>
+        </div>
+
+        <!-- Projet 5: Wazuh SIEM -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-siem">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Docker container -->
+                    <rect x="45" y="8" width="50" height="32" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.2"/>
+                    <text x="70" y="22" text-anchor="middle" fill="#00d4ff" font-size="7" font-family="monospace">Wazuh</text>
+                    <text x="70" y="32" text-anchor="middle" fill="#5a7a95" font-size="5.5" font-family="monospace">[ Docker ]</text>
+                    <!-- Events coming in -->
+                    <circle r="3.5" fill="#ff4757" opacity="0.9">
+                        <animateMotion dur="2s" repeatCount="indefinite" path="M10,50 L45,25"/>
+                        <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle r="3" fill="#ff8c42" opacity="0.9">
+                        <animateMotion begin="0.8s" dur="2s" repeatCount="indefinite" path="M10,30 L45,20"/>
+                        <animate attributeName="opacity" values="0;1;1;0" begin="0.8s" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="5" y="35" fill="#ff4757" font-size="6" font-family="monospace">CVE</text>
+                    <text x="5" y="52" fill="#ff8c42" font-size="6" font-family="monospace">FIM</text>
+                    <!-- MITRE correlation out -->
+                    <line x1="95" y1="24" x2="128" y2="24" stroke="#39ff14" stroke-width="0.8" stroke-dasharray="3 2">
+                        <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="1s" repeatCount="indefinite"/>
+                    </line>
+                    <text x="100" y="20" fill="#39ff14" font-size="5.5" font-family="monospace">MITRE</text>
+                    <text x="100" y="30" fill="#39ff14" font-size="5.5" font-family="monospace">ATT&CK</text>
+                    <!-- Alert box -->
+                    <rect x="20" y="58" width="100" height="14" rx="2" fill="#39ff14" opacity="0.08" stroke="#39ff14" stroke-width="0.7"/>
+                    <text x="70" y="68" text-anchor="middle" fill="#39ff14" font-size="6" font-family="monospace">Alerte corrélée · Auto-ban ✓</text>
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">SIEM · Homelab</span>
+                <span class="project-date">2024</span>
+            </div>
+            <h3>SIEM Wazuh via Docker</h3>
+            <p>Déploiement et configuration d'un <strong>SIEM Wazuh</strong> via Docker en local : centralisation des événements de sécurité, détection de vulnérabilités <strong>CVE</strong>, surveillance d'intégrité des fichiers (FIM) et corrélation d'alertes avec le framework <strong>MITRE ATT&CK</strong>.</p>
+            <div class="project-stack"><span>Wazuh</span><span>Docker</span><span>FIM</span><span>MITRE ATT&CK</span><span>CVE</span></div>
+            <div class="project-metrics"><span>↗ CVE détecté</span><span>↗ MITRE corrélé</span></div>
+        </div>
+
+        <!-- Projet 6: Portfolio Web -->
+        <div class="project-card reveal">
+            <div class="project-anim" id="anim-portfolio">
+                <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Browser window -->
+                    <rect x="10" y="8" width="120" height="62" rx="4" fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.7"/>
+                    <!-- Browser bar -->
+                    <rect x="10" y="8" width="120" height="12" rx="4" fill="#00d4ff" opacity="0.08"/>
+                    <circle cx="20" cy="14" r="2" fill="#ff4757" opacity="0.8"/>
+                    <circle cx="28" cy="14" r="2" fill="#ff8c42" opacity="0.8"/>
+                    <circle cx="36" cy="14" r="2" fill="#39ff14" opacity="0.8"/>
+                    <!-- URL bar -->
+                    <rect x="44" y="10" width="70" height="8" rx="2" fill="#00d4ff" opacity="0.1" stroke="#00d4ff" stroke-width="0.6"/>
+                    <text x="79" y="16.5" text-anchor="middle" fill="#00d4ff" font-size="5" font-family="monospace">portfolio-hajatiana.mg</text>
+                    <!-- HTML tag -->
+                    <text x="18" y="32" fill="#ff8c42" font-size="7" font-family="monospace">&lt;html&gt;</text>
+                    <!-- CSS squiggle -->
+                    <text x="18" y="43" fill="#00d4ff" font-size="7" font-family="monospace">{ css }</text>
+                    <!-- JS function -->
+                    <text x="18" y="54" fill="#39ff14" font-size="7" font-family="monospace">fn( js )</text>
+                    <!-- PHP tag -->
+                    <text x="80" y="43" fill="#a78bfa" font-size="7" font-family="monospace">&lt;?php</text>
+                    <!-- Animated cursor blink -->
+                    <rect x="100" y="56" width="5" height="8" rx="1" fill="#00d4ff" opacity="0.9">
+                        <animate attributeName="opacity" values="0.9;0;0.9" dur="1s" repeatCount="indefinite"/>
+                    </rect>
+                    <!-- Animated typing line -->
+                    <line x1="80" y1="56" x2="98" y2="56" stroke="#5a7a95" stroke-width="1" stroke-dasharray="18" stroke-dashoffset="18">
+                        <animate attributeName="stroke-dashoffset" from="18" to="0" dur="1.5s" repeatCount="indefinite"/>
+                    </line>
+                    <text x="70" y="76" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">HTML5 · CSS3 · JS · PHP</text>
+                </svg>
+            </div>
+            <div class="project-header">
+                <span class="tag">Projet Personnel · Web</span>
+                <span class="project-date">2025</span>
+            </div>
+            <h3>Conception de ce Portfolio</h3>
+            <p>Conception et développement complet de ce portfolio personnel en <strong>HTML5, CSS3, JavaScript</strong> et <strong>PHP</strong> — sans framework : animation Canvas réseau, boot screen, terminal interactif, SVG animés, scroll reveal, barres de compétences, et formulaire de contact sécurisé via <strong>PHP natif</strong>.</p>
+            <div class="project-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>Canvas API</span><span>SVG</span></div>
+            <div class="project-metrics"><span>↗ 100% Vanilla</span><span>↗ Responsive</span><span>↗ Sans framework</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <div class="section-header">
+        <span class="section-tag">// 04</span>
+        <h2>Formations & Diplômes</h2>
+        <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+        <div class="edu-card reveal">
+            <div class="edu-year">2025</div>
+            <div class="edu-info">
+                <h4>Licence L3 — Administration Réseaux & Systèmes</h4>
+                <p>CNTEMAD · 2024–2025</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-year">2025</div>
+            <div class="edu-info">
+                <h4>Formation Administration Réseaux & Systèmes</h4>
+                <p>Nir'Info Ampefiloha · Mars 2025</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-year">2025</div>
+            <div class="edu-info">
+                <h4>Formation Réseaux Informatiques</h4>
+                <p>Nir'Info Ampefiloha · Février 2025</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-year">2024</div>
+            <div class="edu-info">
+                <h4>Licence L2 — Informatique</h4>
+                <p>CNTEMAD · 2023–2024</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-year">2023</div>
+            <div class="edu-info">
+                <h4>Licence L1 — Informatique</h4>
+                <p>CNTEMAD · 2022–2023</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-year">2021</div>
+            <div class="edu-info">
+                <h4>Baccalauréat — Série D</h4>
+                <p>Lycée privé Les Séraphins Itaosy · 2021</p>
+            </div>
+            <span class="cert-status obtained">Obtenu</span>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="section-header">
+        <span class="section-tag">// 05</span>
+        <h2>Me contacter</h2>
+        <div class="section-line"></div>
+    </div>
+    <div class="contact-wrapper reveal">
+        <div class="contact-info">
+            <p>Disponible pour un premier emploi ou un stage en administration réseau, systèmes ou cybersécurité à Antananarivo ou à distance.</p>
+            <div class="contact-links">
+                <a href="/cdn-cgi/l/email-protection#4d39242c232c252c272c7c7c0d2a202c2421632e2220" class="contact-link">
+                    <span class="contact-icon">✉</span> <span class="__cf_email__" data-cfemail="c4b0ada5aaa5aca5aea5f5f584a3a9a5ada8eaa7aba9">[email&#160;protected]</span>
+                </a>
+                <a href="tel:+261388196383" class="contact-link">
+                    <span class="contact-icon">📞</span> 038 81 963 83
+                </a>
+                <a href="https://linkedin.com" class="contact-link" target="_blank" rel="noopener">
+                    <span class="contact-icon">in</span> LinkedIn
+                </a>
+            </div>
+        </div>
+        <form id="contact-form" action="send_mail.php" method="POST" novalidate>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Décrivez votre opportunité..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+                <span class="btn-text">Envoyer le message</span>
+                <span class="btn-icon">→</span>
+            </button>
+            <div id="form-feedback" role="alert"></div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <span class="prompt">hajatiana@portfolio:~#</span> <span class="footer-cmd">exit 0</span>
+        <p class="footer-sub">RAJAOFERASON Hajatiana · 2025</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
