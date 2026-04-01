@@ -265,7 +265,7 @@ const translations = {
 //  MOTEUR DE TRADUCTION — à coller dans script.js ou ici
 // ============================================================
 
-let currentLang = localStorage.getItem('portfolio-lang') || 'fr';
+let currentLang = localStorage.getItem('portfolio-lang') || 'en';
 
 function applyLang(lang) {
   currentLang = lang;
