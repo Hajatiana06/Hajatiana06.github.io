@@ -139,7 +139,14 @@ const translations = {
       "Technicien Support IT N2\nRéseaux & Systèmes",
       "Virtualisation ·\nSupervision · Sécurité",
       "Linux · Windows Server\nDocker · Wazuh · Grafana"
+      
     ],
+    
+    // Dans l'objet fr
+boot_line1: "Initialisation du système...",
+boot_line2: "Chargement des modules réseau... ",
+boot_line3: "Authentification sécurisée... ",
+boot_line4: "Démarrage du portfolio...",
   },
 
   // ─────────────────────────────────────────────
@@ -277,6 +284,10 @@ const translations = {
       "Virtualization ·\nMonitoring · Security",
       "Linux · Windows Server\nDocker · Wazuh · Grafana"
     ],
+  boot_line1: "System initialisation...",
+boot_line2: "Loading network modules... ",
+boot_line3: "Secure authentication... ",
+boot_line4: "Starting portfolio...",
   }
 };
 
