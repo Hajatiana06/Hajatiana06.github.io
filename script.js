@@ -76,6 +76,7 @@ const phrases = [
     "Technicien Support IT N2\nRéseaux & Systèmes",
     "Virtualisation ·\nSupervision · Sécurité",
     "Linux · Windows Server\nDocker · Wazuh · Grafana"
+   window._currentPhrases = phrases;
 ];
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-text');
@@ -202,7 +203,7 @@ form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const btnText = btn.querySelector('.btn-text');
-    btnText.textContent = 'Envoi en cours...';
+    btnText.textContent = translations[currentLang].form_sending;
     btn.disabled = true;
     feedback.className = '';
     feedback.style.display = 'none';
@@ -212,15 +213,15 @@ form?.addEventListener('submit', async (e) => {
         const text = await res.text();
         if (res.ok && text.includes('succès')) {
             feedback.className = 'success';
-            feedback.textContent = '✓ Message envoyé avec succès !';
+            feedback.textContent = translations[currentLang].form_success;
             form.reset();
         } else throw new Error();
     } catch {
         feedback.className = 'error';
-        feedback.textContent = '✗ Erreur lors de l\'envoi. Réessayez.';
+        feedback.textContent = translations[currentLang].form_error;
     } finally {
         feedback.style.display = 'block';
-        btnText.textContent = 'Envoyer le message';
+        btnText.textContent = translations[currentLang].form_btn;
         btn.disabled = false;
     }
 });
