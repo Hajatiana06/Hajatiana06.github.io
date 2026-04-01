@@ -130,6 +130,16 @@ const translations = {
     contact_email:    "Email",
     contact_message:  "Message",
     contact_send:     "Envoyer le message",
+      // ── FORMULAIRE & TYPING
+    form_sending:  "Envoi en cours...",
+    form_success:  "✓ Message envoyé avec succès !",
+    form_error:    "✗ Erreur lors de l'envoi. Réessayez.",
+    form_btn:      "Envoyer le message",
+    phrases: [
+      "Technicien Support IT N2\nRéseaux & Systèmes",
+      "Virtualisation ·\nSupervision · Sécurité",
+      "Linux · Windows Server\nDocker · Wazuh · Grafana"
+    ],
   },
 
   // ─────────────────────────────────────────────
@@ -257,6 +267,16 @@ const translations = {
     contact_email:    "Email",
     contact_message:  "Message",
     contact_send:     "Send message",
+     // ── FORM & TYPING
+    form_sending:  "Sending...",
+    form_success:  "✓ Message sent successfully!",
+    form_error:    "✗ Error while sending. Please try again.",
+    form_btn:      "Send message",
+    phrases: [
+      "IT Support Technician L2\nNetworks & Systems",
+      "Virtualization ·\nMonitoring · Security",
+      "Linux · Windows Server\nDocker · Wazuh · Grafana"
+    ],
   }
 };
 
@@ -287,6 +307,12 @@ function applyLang(lang) {
   });
 
   // Mettre à jour les boutons actifs
+   // Mettre à jour les phrases du typing effect
+  window._currentPhrases = translations[lang].phrases;
+
+  // Mettre à jour le bouton submit
+  const btnText = document.querySelector('#contact-form .btn-text');
+  if (btnText) btnText.textContent = translations[lang].form_btn;
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
