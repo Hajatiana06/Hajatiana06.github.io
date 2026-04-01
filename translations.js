@@ -141,10 +141,10 @@ const translations = {
   // ─────────────────────────────────────────────
   en: {
     // Boot screen
-    boot_line1: "System initialisation...",
-    boot_line2: "Loading network modules... ",
-    boot_line3: "Secure authentication... ",
-    boot_line4: "Starting portfolio...",
+    boot_line1: "System initialisation... [OK]",
+    boot_line2: "Loading network modules... [OK]",
+    boot_line3: "Secure authentication... [OK]",
+    boot_line4: "Starting portfolio... [OK]",
 
     // Navigation
     nav_about:      "About",
