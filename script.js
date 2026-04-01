@@ -71,18 +71,23 @@ initNodes();
 drawNetwork();
 window.addEventListener('resize', () => { resizeCanvas(); initNodes(); });
 
-/* ---- Typing Effect ---- */
-const phrases = [
-    "Technicien Support IT N2\nRéseaux & Systèmes",
-    "Virtualisation ·\nSupervision · Sécurité",
-    "Linux · Windows Server\nDocker · Wazuh · Grafana"
-   window._currentPhrases = phrases;
-];
+/* ---- Typing Effect (avec support multi-langues) ---- */
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-text');
 
+function getCurrentPhrases() {
+    return (window._currentPhrases && window._currentPhrases.length)
+        ? window._currentPhrases
+        : [
+            "Technicien Support IT N2\nRéseaux & Systèmes",
+            "Virtualisation ·\nSupervision · Sécurité",
+            "Linux · Windows Server\nDocker · Wazuh · Grafana"
+          ];
+}
+
 function typeLoop() {
     if (!typedEl) return;
+    const phrases = getCurrentPhrases();
     const current = phrases[phraseIdx];
     typedEl.textContent = isDeleting
         ? current.slice(0, charIdx--)
@@ -203,7 +208,7 @@ form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const btnText = btn.querySelector('.btn-text');
-    btnText.textContent = translations[currentLang].form_sending;
+    btnText.textContent = translations[currentLang]?.form_sending || 'Envoi...';
     btn.disabled = true;
     feedback.className = '';
     feedback.style.display = 'none';
@@ -213,15 +218,15 @@ form?.addEventListener('submit', async (e) => {
         const text = await res.text();
         if (res.ok && text.includes('succès')) {
             feedback.className = 'success';
-            feedback.textContent = translations[currentLang].form_success;
+            feedback.textContent = translations[currentLang]?.form_success || 'Message envoyé !';
             form.reset();
         } else throw new Error();
     } catch {
         feedback.className = 'error';
-        feedback.textContent = translations[currentLang].form_error;
+        feedback.textContent = translations[currentLang]?.form_error || 'Erreur lors de l\'envoi.';
     } finally {
         feedback.style.display = 'block';
-        btnText.textContent = translations[currentLang].form_btn;
+        btnText.textContent = translations[currentLang]?.form_btn || 'Envoyer le message';
         btn.disabled = false;
     }
 });
