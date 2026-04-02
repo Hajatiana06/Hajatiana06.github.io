@@ -1,8 +1,17 @@
 /* =============================================
    PORTFOLIO JS — RAJAOFERASON Hajatiana
+   Amélioré : EmailJS, thème, filtres, terminal interactif, compteur
    ============================================= */
 
-/* ---- Boot Screen ---- */
+// --- Configuration EmailJS (à remplacer par vos identifiants) ---
+const EMAILJS_PUBLIC_KEY = 'VOTRE_PUBLIC_KEY';     // https://dashboard.emailjs.com/admin/integration
+const EMAILJS_SERVICE_ID  = 'VOTRE_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';
+
+// Initialisation EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// --- Boot Screen ---
 window.addEventListener('load', () => {
     const boot = document.getElementById('boot-screen');
     setTimeout(() => {
@@ -11,17 +20,19 @@ window.addEventListener('load', () => {
     }, 2900);
 });
 
-/* ---- Network Canvas Background ---- */
+// --- Network Canvas Background (optimisé) ---
 const canvas = document.getElementById('network-bg');
 const ctx = canvas.getContext('2d');
 let nodes = [];
+let animationId;
 
 function resizeCanvas() {
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 
-function initNodes(count = 50) {
+function initNodes() {
+    const count = Math.min(60, Math.floor(window.innerWidth / 25));
     nodes = Array.from({ length: count }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -33,6 +44,7 @@ function initNodes(count = 50) {
 }
 
 function drawNetwork() {
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const maxDist = 150;
 
@@ -63,7 +75,7 @@ function drawNetwork() {
             }
         }
     }
-    requestAnimationFrame(drawNetwork);
+    animationId = requestAnimationFrame(drawNetwork);
 }
 
 resizeCanvas();
@@ -71,7 +83,7 @@ initNodes();
 drawNetwork();
 window.addEventListener('resize', () => { resizeCanvas(); initNodes(); });
 
-/* ---- Typing Effect (avec support multi-langues) ---- */
+// --- Typing Effect (support multi-langues) ---
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-text');
 
@@ -108,7 +120,7 @@ function typeLoop() {
 }
 setTimeout(typeLoop, 3300);
 
-/* ---- Terminal Widget ---- */
+// --- Terminal Widget (statique) ---
 const termLines = [
     { delay: 3400, html: `<span class="cmd">$ ping -c 3 192.168.1.1</span>` },
     { delay: 3700, html: `<span class="out">PING 192.168.1.1: 56 data bytes</span>` },
@@ -125,7 +137,6 @@ const termLines = [
     { delay: 7150, html: `<span class="out warn">WARN: 5 failed SSH from 185.220.x.x</span>` },
     { delay: 7350, html: `<span class="out ok">INFO: 185.220.x.x auto-banned ✓</span>` },
 ];
-
 const termBody = document.getElementById('terminal-output');
 termLines.forEach(({ delay, html }) => {
     setTimeout(() => {
@@ -138,7 +149,7 @@ termLines.forEach(({ delay, html }) => {
     }, delay);
 });
 
-/* ---- Scroll Reveal ---- */
+// --- Scroll Reveal ---
 const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -148,7 +159,7 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ---- Skill Bars ---- */
+// --- Skill Bars ---
 const barObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -161,7 +172,7 @@ const barObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.skill-category').forEach(el => barObs.observe(el));
 
-/* ---- Counter Animation ---- */
+// --- Counter Animation ---
 const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -181,18 +192,18 @@ const counterObs = new IntersectionObserver((entries) => {
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) counterObs.observe(heroStats);
 
-/* ---- Navbar shadow on scroll ---- */
+// --- Navbar shadow ---
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
 }, { passive: true });
 
-/* ---- CTA → Projects ---- */
+// --- CTA button ---
 document.getElementById('cta')?.addEventListener('click', () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
 });
 
-/* ---- Smooth anchor nav ---- */
+// --- Smooth anchor nav ---
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -200,7 +211,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     });
 });
 
-/* ---- Contact Form AJAX ---- */
+// --- Contact Form avec EmailJS ---
 const form = document.getElementById('contact-form');
 const feedback = document.getElementById('form-feedback');
 
@@ -213,15 +224,21 @@ form?.addEventListener('submit', async (e) => {
     feedback.className = '';
     feedback.style.display = 'none';
 
+    const nom = document.getElementById('nom').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
     try {
-        const res = await fetch('send_mail.php', { method: 'POST', body: new FormData(form) });
-        const text = await res.text();
-        if (res.ok && text.includes('succès')) {
-            feedback.className = 'success';
-            feedback.textContent = translations[currentLang]?.form_success || 'Message envoyé !';
-            form.reset();
-        } else throw new Error();
-    } catch {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            from_name: nom,
+            from_email: email,
+            message: message,
+        });
+        feedback.className = 'success';
+        feedback.textContent = translations[currentLang]?.form_success || 'Message envoyé !';
+        form.reset();
+    } catch (error) {
+        console.error('EmailJS error:', error);
         feedback.className = 'error';
         feedback.textContent = translations[currentLang]?.form_error || 'Erreur lors de l\'envoi.';
     } finally {
@@ -230,3 +247,92 @@ form?.addEventListener('submit', async (e) => {
         btn.disabled = false;
     }
 });
+
+// --- Mode clair/sombre ---
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') document.body.classList.add('light-mode');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        themeToggle.textContent = isLight ? '☀️' : '🌙';
+    });
+    themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+}
+
+// --- Filtres projets ---
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const expCard = document.querySelector('.exp-card'); // stage card
+
+function filterProjects(category) {
+    if (expCard) {
+        if (category === 'all' || category === 'stage') expCard.style.display = '';
+        else expCard.style.display = 'none';
+    }
+    projectCards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterProjects(filter);
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+// initialisation : tout afficher
+filterProjects('all');
+
+// --- Terminal interactif (commandes simulées) ---
+const termInput = document.getElementById('term-input');
+const termOutputDiv = document.getElementById('term-output-interactive');
+
+const commands = {
+    help: () => "Commandes disponibles : help, skills, projects, contact, clear, about, whoami",
+    skills: () => "Compétences : Linux, Windows Server, Docker, Wazuh, Grafana, Bacula, Fail2ban, UFW, VMware, Active Directory, GLPI, ManageEngine, HTML/CSS/JS, PHP, Python",
+    projects: () => "Projets : Bacula backup, NAS local, Hardening Linux, Grafana/Prometheus, Wazuh SIEM, Portfolio web. Détails dans la section Projets.",
+    contact: () => "Email : tianahaja11@gmail.com | Tél : 038 81 963 83",
+    about: () => "Technicien Support IT N2, passionné réseaux, systèmes et sécurité. Disponible pour opportunités.",
+    whoami: () => "RAJAOFERASON Hajatiana — Support IT & Réseaux",
+    clear: () => { termOutputDiv.innerHTML = ''; return ''; }
+};
+
+termInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const input = termInput.value.trim();
+        if (!input) return;
+        // Afficher la commande
+        const lineCmd = document.createElement('div');
+        lineCmd.className = 't-line';
+        lineCmd.innerHTML = `<span class="prompt">hajatiana@portfolio:~$</span> ${input}`;
+        termOutputDiv.appendChild(lineCmd);
+        // Traiter la commande
+        const cmdKey = input.split(' ')[0].toLowerCase();
+        let response = commands[cmdKey] ? commands[cmdKey]() : `Commande inconnue : ${input}. Tapez 'help'.`;
+        if (response) {
+            const lineResp = document.createElement('div');
+            lineResp.className = 't-line';
+            lineResp.innerHTML = `<span class="out">${response}</span>`;
+            termOutputDiv.appendChild(lineResp);
+        }
+        termOutputDiv.scrollTop = termOutputDiv.scrollHeight;
+        termInput.value = '';
+    }
+});
+
+// --- Compteur de visites (CountAPI) ---
+fetch('https://api.countapi.xyz/hit/hajatiana-portfolio/visits')
+    .then(res => res.json())
+    .then(data => {
+        const visitorSpan = document.getElementById('visitor-count');
+        if (visitorSpan) visitorSpan.textContent = data.value;
+    })
+    .catch(err => console.warn('CountAPI error:', err));
