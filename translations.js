@@ -1,6 +1,7 @@
 // ============================================================
 //  translations.js — Portfolio RAJAOFERASON Hajatiana
 //  Langues : Français (fr) | Anglais (en)
+//  Inclut toutes les clés pour le site (filtres, etc.)
 // ============================================================
 
 const translations = {
@@ -55,6 +56,12 @@ const translations = {
 
     // Projects & Experience
     section_projects: "Projets & Expériences",
+    // Filtres
+    filter_all:     "Tous",
+    filter_homelab: "Homelab",
+    filter_security:"Sécurité",
+    filter_web:     "Web",
+
     proj1_type:     "Stage IT N2",
     proj1_company:  "Be Ys Outsourcing Services Madagascar",
     proj1_date:     "Juillet 2025 – Janvier 2026 · Antananarivo",
@@ -90,7 +97,7 @@ const translations = {
     proj6_badge2: "↗ MITRE corrélé",
     proj7_type:  "Projet Personnel · Web · 2025",
     proj7_title: "Conception de ce Portfolio",
-    proj7_desc:  "Conception et développement complet de ce portfolio personnel en HTML5, CSS3, JavaScript et PHP — sans framework : animation Canvas réseau, boot screen, terminal interactif, SVG animés, scroll reveal, barres de compétences, et formulaire de contact sécurisé via PHP natif.",
+    proj7_desc:  "Conception et développement complet de ce portfolio personnel en HTML5, CSS3, JavaScript et PHP — sans framework : animation Canvas réseau, boot screen, terminal interactif, SVG animés, scroll reveal, barres de compétences, et formulaire de contact sécurisé via EmailJS.",
     proj7_badge1: "↗ 100% Vanilla",
     proj7_badge2: "↗ Responsive",
     proj7_badge3: "↗ Sans framework",
@@ -129,6 +136,8 @@ const translations = {
     form_success:  "✓ Message envoyé avec succès !",
     form_error:    "✗ Erreur lors de l'envoi. Réessayez.",
     form_btn:      "Envoyer le message",
+
+    // Phrases pour l'effet de frappe
     phrases: [
       "Technicien Support IT N2\nRéseaux & Systèmes",
       "Virtualisation ·\nSupervision · Sécurité",
@@ -186,6 +195,12 @@ const translations = {
 
     // Projects & Experience
     section_projects: "Projects & Experience",
+    // Filters
+    filter_all:     "All",
+    filter_homelab: "Homelab",
+    filter_security:"Security",
+    filter_web:     "Web",
+
     proj1_type:     "IT Internship L2",
     proj1_company:  "Be Ys Outsourcing Services Madagascar",
     proj1_date:     "July 2025 – January 2026 · Antananarivo",
@@ -221,7 +236,7 @@ const translations = {
     proj6_badge2: "↗ MITRE correlated",
     proj7_type:  "Personal Project · Web · 2025",
     proj7_title: "Portfolio Design",
-    proj7_desc:  "Full design and development of this personal portfolio in HTML5, CSS3, JavaScript and PHP — no framework: network Canvas animation, boot screen, interactive terminal, animated SVGs, scroll reveal, skill bars, and secure contact form via native PHP.",
+    proj7_desc:  "Full design and development of this personal portfolio in HTML5, CSS3, JavaScript and PHP — no framework: network Canvas animation, boot screen, interactive terminal, animated SVGs, scroll reveal, skill bars, and secure contact form via EmailJS.",
     proj7_badge1: "↗ 100% Vanilla",
     proj7_badge2: "↗ Responsive",
     proj7_badge3: "↗ No framework",
@@ -260,6 +275,8 @@ const translations = {
     form_success:  "✓ Message sent successfully!",
     form_error:    "✗ Error while sending. Please try again.",
     form_btn:      "Send message",
+
+    // Typing effect phrases
     phrases: [
       "IT Support Technician L2\nNetworks & Systems",
       "Virtualization ·\nMonitoring · Security",
@@ -284,8 +301,8 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key] !== undefined) {
       const val = translations[lang][key];
-      // Si la valeur est un tableau, reconstruire les <li> (pour les listes)
       if (Array.isArray(val)) {
+        // Pour les listes (ex: proj1_desc)
         el.innerHTML = val.map(item => `<li>${item}</li>`).join('');
       } else {
         el.textContent = val;
@@ -293,10 +310,18 @@ function applyLang(lang) {
     }
   });
 
+  // Traduire les placeholders (data-i18n-placeholder)
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
   // Mettre à jour les phrases du typing effect
   window._currentPhrases = translations[lang].phrases;
 
-  // Mettre à jour le bouton du formulaire
+  // Mettre à jour le texte du bouton du formulaire (si présent)
   const btnText = document.querySelector('#contact-form .btn-text');
   if (btnText) btnText.textContent = translations[lang].form_btn;
 
