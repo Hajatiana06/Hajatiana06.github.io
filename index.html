@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAJAOFERASON Hajatiana — Support IT & Réseaux</title>
-    <meta name="description" content="Portfolio de RAJAOFERASON Hajatiana, Technicien Support IT N2 spécialisé en Administration Réseaux et Systèmes.">
+    <meta name="description" content="Portfolio de RAJAOFERASON Hajatiana, Technicien Support IT N2 spécialisé en Administration Réseaux, Systèmes et Sécurité. Compétences : Linux, Windows Server, Docker, Wazuh, Grafana, Bacula, Hardening.">
+    <meta name="author" content="RAJAOFERASON Hajatiana">
+    <meta name="keywords" content="support IT, réseaux, systèmes, sécurité, Linux, Windows Server, Docker, Wazuh, Grafana, Bacula, homelab">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -36,11 +40,14 @@
         <li><a href="#education"><span class="cb">[</span><span data-i18n="nav_education">Formation</span><span class="cb">]</span></a></li>
         <li><a href="#contact"><span class="cb">[</span><span data-i18n="nav_contact">Contact</span><span class="cb">]</span></a></li>
     </ul>
-    <div class="nav-status"><span class="status-dot"></span> ONLINE</div>
-    <div class="lang-switcher">
-        <span class="lang-prompt">lang:</span>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn active" data-lang="en">EN</button>
+    <div class="nav-actions">
+        <div class="nav-status"><span class="status-dot"></span> ONLINE</div>
+        <div class="lang-switcher">
+            <span class="lang-prompt">lang:</span>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn active" data-lang="en">EN</button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Changer de thème">🌙</button>
     </div>
 </nav>
 
@@ -53,9 +60,9 @@
         <div class="hero-stats">
             <div class="stat"><span class="stat-val" data-target="6">0</span><span class="stat-label" data-i18n="hero_stat_months">Mois de stage</span></div>
             <div class="stat-divider"></div>
-            <div class="stat"><span class="stat-val" data-target="5">0</span><span class="stat-label" data-i18n="hero_stat_projects">Projets réalisés</span></div>
+            <div class="stat"><span class="stat-val" data-target="7">0</span><span class="stat-label" data-i18n="hero_stat_projects">Projets réalisés</span></div>
             <div class="stat-divider"></div>
-            <div class="stat"><span class="stat-val" data-target="10">0</span><span class="stat-label" data-i18n="hero_stat_tools">+ Outils maîtrisés</span></div>
+            <div class="stat"><span class="stat-val" data-target="15">0</span><span class="stat-label" data-i18n="hero_stat_tools">+ Outils maîtrisés</span></div>
         </div>
         <div class="hero-actions">
             <button id="cta" class="btn-primary" data-i18n="hero_btn_projects">Voir mes projets</button>
@@ -162,8 +169,16 @@
         <div class="section-line"></div>
     </div>
 
+    <!-- Barre de filtres -->
+    <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tous</button>
+        <button class="filter-btn" data-filter="homelab" data-i18n="filter_homelab">Homelab</button>
+        <button class="filter-btn" data-filter="security" data-i18n="filter_security">Sécurité</button>
+        <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web</button>
+    </div>
+
     <!-- Stage -->
-    <div class="exp-card reveal">
+    <div class="exp-card reveal" data-category="stage">
         <div class="exp-header">
             <div>
                 <span class="tag tag-job" data-i18n="proj1_type">Stage IT N2</span>
@@ -195,8 +210,8 @@
     </div>
 
     <div class="projects-grid">
-        <!-- Projet 1: Bacula -->
-        <div class="project-card reveal">
+        <!-- Projet 1: Bacula (homelab) -->
+        <div class="project-card reveal homelab" data-category="homelab">
             <div class="project-anim" id="anim-bacula">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <rect x="8" y="25" width="32" height="28" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.2"/>
@@ -234,8 +249,8 @@
             </div>
         </div>
 
-        <!-- Projet 2: NAS -->
-        <div class="project-card reveal">
+        <!-- Projet 2: NAS (homelab) -->
+        <div class="project-card reveal homelab" data-category="homelab">
             <div class="project-anim" id="anim-nas">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <rect x="53" y="26" width="34" height="26" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
@@ -277,8 +292,8 @@
             </div>
         </div>
 
-        <!-- Projet 3: Linux Hardening -->
-        <div class="project-card reveal">
+        <!-- Projet 3: Hardening (security) -->
+        <div class="project-card reveal security" data-category="security">
             <div class="project-anim" id="anim-hardening">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <path d="M70,12 L90,22 L90,45 Q90,60 70,68 Q50,60 50,45 L50,22 Z" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
@@ -315,8 +330,8 @@
             </div>
         </div>
 
-        <!-- Projet 4: Grafana/Prometheus -->
-        <div class="project-card reveal">
+        <!-- Projet 4: Grafana/Prometheus (homelab) -->
+        <div class="project-card reveal homelab" data-category="homelab">
             <div class="project-anim" id="anim-monitoring">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <rect x="8" y="10" width="124" height="50" rx="3" fill="#00d4ff" opacity="0.04" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
@@ -348,8 +363,8 @@
             </div>
         </div>
 
-        <!-- Projet 5: Wazuh SIEM -->
-        <div class="project-card reveal">
+        <!-- Projet 5: Wazuh SIEM (security) -->
+        <div class="project-card reveal security" data-category="security">
             <div class="project-anim" id="anim-siem">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <rect x="45" y="8" width="50" height="32" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.2"/>
@@ -388,8 +403,8 @@
             </div>
         </div>
 
-        <!-- Projet 6: Portfolio Web -->
-        <div class="project-card reveal">
+        <!-- Projet 6: Portfolio Web (web) -->
+        <div class="project-card reveal web" data-category="web">
             <div class="project-anim" id="anim-portfolio">
                 <svg viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
                     <rect x="10" y="8" width="120" height="62" rx="4" fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.7"/>
@@ -409,7 +424,7 @@
                     <line x1="80" y1="56" x2="98" y2="56" stroke="#5a7a95" stroke-width="1" stroke-dasharray="18" stroke-dashoffset="18">
                         <animate attributeName="stroke-dashoffset" from="18" to="0" dur="1.5s" repeatCount="indefinite"/>
                     </line>
-                    <text x="70" y="76" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">HTML5 · CSS3 · JS · PHP</text>
+                    <text x="70" y="76" text-anchor="middle" fill="#5a7a95" font-size="6" font-family="monospace">HTML5 · CSS3 · JS · EmailJS</text>
                 </svg>
             </div>
             <div class="project-header">
@@ -417,8 +432,8 @@
                 <span class="project-date">2025</span>
             </div>
             <h3 data-i18n="proj7_title">Conception de ce Portfolio</h3>
-            <p data-i18n="proj7_desc">Conception et développement complet de ce portfolio personnel en <strong>HTML5, CSS3, JavaScript</strong> et <strong>PHP</strong> — sans framework : animation Canvas réseau, boot screen, terminal interactif, SVG animés, scroll reveal, barres de compétences, et formulaire de contact sécurisé via <strong>PHP natif</strong>.</p>
-            <div class="project-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>Canvas API</span><span>SVG</span></div>
+            <p data-i18n="proj7_desc">Conception et développement complet de ce portfolio personnel en <strong>HTML5, CSS3, JavaScript</strong> — sans framework : animation Canvas réseau, boot screen, terminal interactif, SVG animés, scroll reveal, barres de compétences, formulaire sécurisé avec EmailJS, et mode clair/sombre.</p>
+            <div class="project-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>EmailJS</span><span>Canvas API</span><span>SVG</span></div>
             <div class="project-metrics">
                 <span data-i18n="proj7_badge1">↗ 100% Vanilla</span>
                 <span data-i18n="proj7_badge2">↗ Responsive</span>
@@ -487,7 +502,7 @@
     </div>
 </section>
 
-<!-- Contact -->
+<!-- Contact + Terminal interactif -->
 <section id="contact">
     <div class="section-header">
         <span class="section-tag">// 05</span>
@@ -498,18 +513,18 @@
         <div class="contact-info">
             <p data-i18n="contact_intro">Disponible pour un premier emploi ou un stage en administration réseau, systèmes ou cybersécurité à Antananarivo ou à distance.</p>
             <div class="contact-links">
-                <a href="/cdn-cgi/l/email-protection#4d39242c232c252c272c7c7c0d2a202c2421632e2220" class="contact-link">
-                    <span class="contact-icon">✉</span> <span class="__cf_email__" data-cfemail="c4b0ada5aaa5aca5aea5f5f584a3a9a5ada8eaa7aba9">[email&#160;protected]</span>
+                <a href="/cdn-cgi/l/email-protection#d4b0ada5aaa5aca5aea5f5f5b4a3a9a5ada8eab7bbb9" class="contact-link">
+                    <span class="contact-icon">✉</span> <span class="__cf_email__" data-cfemail="1a6e737b747b727b707b2b2b5a7d777b737634797577">[email&#160;protected]</span>
                 </a>
                 <a href="tel:+261388196383" class="contact-link">
                     <span class="contact-icon">📞</span> 038 81 963 83
                 </a>
-                <a href="https://linkedin.com" class="contact-link" target="_blank" rel="noopener">
+                <a href="https://linkedin.com/in/hajatiana" class="contact-link" target="_blank" rel="noopener">
                     <span class="contact-icon">in</span> LinkedIn
                 </a>
             </div>
         </div>
-        <form id="contact-form" action="send_mail.php" method="POST" novalidate>
+        <form id="contact-form" novalidate>
             <div class="form-group">
                 <label for="nom" data-i18n="contact_name">Nom</label>
                 <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name" data-i18n-placeholder="Your name">
@@ -529,12 +544,28 @@
             <div id="form-feedback" role="alert"></div>
         </form>
     </div>
+
+    <!-- Mini terminal interactif -->
+    <div class="interactive-terminal reveal">
+        <div class="terminal-bar">
+            <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+            <span class="t-title">interactive@hajatiana:~</span>
+        </div>
+        <div id="term-output-interactive" class="terminal-body">
+            <div class="t-line">Bienvenue sur mon terminal interactif. Tapez <span class="cmd">help</span> pour voir les commandes.</div>
+        </div>
+        <div class="term-input-line">
+            <span class="prompt">hajatiana@portfolio:~$</span>
+            <input type="text" id="term-input" autocomplete="off" aria-label="Commande terminal">
+        </div>
+    </div>
 </section>
 
 <footer>
     <div class="footer-content">
         <span class="prompt">hajatiana@portfolio:~#</span> <span class="footer-cmd">exit 0</span>
         <p class="footer-sub">RAJAOFERASON Hajatiana · 2025</p>
+        <div class="visitor-counter">👥 <span id="visitor-count">0</span> visites</div>
     </div>
 </footer>
 
