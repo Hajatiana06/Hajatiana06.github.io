@@ -4,7 +4,7 @@
    ============================================= */
 
 // --- Configuration EmailJS (à remplacer par vos identifiants) ---
-const EMAILJS_PUBLIC_KEY = 'Rz_D79lidq5JvlOXx';     // https://dashboard.emailjs.com/admin/integration
+const EMAILJS_PUBLIC_KEY = 'oBfUY9jmFVx2ySDwu';     // https://dashboard.emailjs.com/admin/integration
 const EMAILJS_SERVICE_ID  = 'service_hdgqi4a';
 const EMAILJS_TEMPLATE_ID = 'template_t4ieobq';
 
